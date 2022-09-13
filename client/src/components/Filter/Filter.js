@@ -1,9 +1,19 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Filter = (props) => {
+    const filter = useSelector( state => state.filter)
+    const dispatch = useDispatch()
+
+    const handleFilterChange = (e) => {
+        dispatch({
+            type: 'filter',
+            payload: e.target.value
+        })
+    }
 
     return (
-        <div>{props.label} <input onChange={props.handleFilterChange} value={props.filter} /></div>
+        <div>{props.label} <input onChange={handleFilterChange} value={filter} name='filter' /></div>
     )
 }
 
