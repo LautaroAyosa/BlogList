@@ -1,7 +1,20 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createBlog } from '../../../../../redux/actions/blogActions'
 import blogsService from '../../../../../services/blogs'
 
 const CreateBlogsFormButton = (props) => {
+  const dispatch = useDispatch()
+  const state = useSelector()  
+
+  const addBlog = (e) => {
+    e.preventDefault()
+    const {target} = e
+    const content = target.blog.value
+    target.note.value = ''
+    dispatch(createBlog(content))
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
