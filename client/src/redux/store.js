@@ -1,19 +1,12 @@
-import { configureStore, combineReducers, compose, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import blogsReducer from "./reducers/blogsReducer";
+import filterReducer from "./reducers/filterReducer";
 
-import blogReducer from './redux/blogReducer/blogReducer'
-
-
-// Redux devtools
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const composeEnhancers = compose;
-
-// Add all reducers here so that they are combined
-const rootReducer = combineReducers({
-  blogReducer,
+const store = configureStore({
+  reducer: {
+    blogs: blogsReducer,
+    filter: filterReducer,
+  },
 });
 
-export const store = configureStore (
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+export default store;

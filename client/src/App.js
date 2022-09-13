@@ -11,7 +11,7 @@ import './App.css'
 const App = () => {
 
   return (
-    <>
+    <Router>
       <NavBar/>
       <div className=''>
         <Routes>
@@ -19,7 +19,7 @@ const App = () => {
           <Route exact path='/login' element={<RegisterLogIn />}/>
         </Routes>
       </div>
-    </>
+    </Router>
   )
 }
 
