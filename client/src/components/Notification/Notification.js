@@ -5,9 +5,9 @@ const Notification = () => {
     
     if (notification) {
         if (notification.type === 'error') {
-            return ( <div className='error'>{notification.message}</div> )
+            return ( <header className='error'>{notification.message}</header> )
         } else {
-            return ( <div className='success'>{notification.message}</div> )
+            return ( <header className='success'>{notification.message}</header> )
         }
     }
 }
