@@ -22,7 +22,7 @@ const BlogsList = (props) => {
                             blog={blog} 
                         />
                     )) :
-                    <p>You haven't created any blogs yet.</p>
+                    <p>You don't have any blogs.</p>
                 }
             </div>
         )

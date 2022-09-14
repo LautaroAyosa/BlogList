@@ -18,11 +18,23 @@ const blogsReducer = (state = [], action) => {
     }
 }
 
-export const createBlog = content => {
-    return {
-        type: '@blogs/new_blog',
-        payload: content
-    }
+export const createBlog = (blog) => {
+    return async (dispatch) => {
+        try {
+            await blogService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
+            const addedBlog = await blogService.createBlog(blog)
+            dispatch( {
+                type: '@blogs/new_blog',
+                payload: addedBlog
+            })
+            dispatch(createNotification(
+                `New blog "${addedBlog.title}" by ${addedBlog.author} added successfuly!`,
+               'success'
+            ))
+        } catch (error) {
+            dispatch(createNotification(error.response.data.error, 'error'))
+        }
+    } 
 }
 
 export const initBlogs = () => {
@@ -49,15 +61,12 @@ export const removeBlog = (blog) => {
                 type: '@blogs/remove_blog',
                 payload: blog.id
             })
-            dispatch(createNotification({
-                message: `${blog.title} by ${blog.author} removed successfuly!`,
-                type: 'success'
-            }))
+            dispatch(createNotification(
+                `${blog.title} by ${blog.author} removed successfuly!`,
+               'success'
+            ))
         } catch (error) {
-            dispatch(createNotification({
-                message: error.response.data.error,
-                type: 'error'
-            }))
+            dispatch(createNotification(error.response.data.error, 'error'))
         }
     }
 }

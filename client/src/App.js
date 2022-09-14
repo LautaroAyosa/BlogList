@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { initBlogs } from './redux/reducers/blogsReducer'
 
+import Notification from './components/Notification/Notification';
 import NavBar from './components/NavBar/NavBar';
 import Home from './Pages/Home/Home'
 import RegisterLogIn from './Pages/RegisterLogIn/RegisterLogIn'
@@ -20,6 +21,7 @@ const App = () => {
 
   return (
     <Router>
+      <Notification />
       <NavBar/>
       <div className=''>
         <Routes>

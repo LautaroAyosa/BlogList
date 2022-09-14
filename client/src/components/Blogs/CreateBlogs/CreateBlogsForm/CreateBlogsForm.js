@@ -14,15 +14,8 @@ const CreateBlogsForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      await blogsService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
-      const addedBlog = await blogsService.createBlog(newBlog)
-      dispatch(createBlog(addedBlog))
+      dispatch(createBlog(newBlog))
       setNewBlog({ title: '', author: '', url: '' })
-
-    } catch (err) {
-      props.setMessage(`Error! ${err.response.data.error}`)
-    }
   }
 
   return (
