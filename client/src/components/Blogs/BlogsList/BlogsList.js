@@ -1,9 +1,33 @@
 import { useSelector } from 'react-redux'
 import Blog from "./Blog/Blog";
 
-const BlogsList = () => {
+const BlogsList = (props) => {
     const blogs = useSelector(state => state.blogs)
     const filter = useSelector(state => state.filter)
+
+    if (props.usedFor === 'dashboard') {
+        const dashboardData = blogs.filter((e) => {
+            if(e.user) {
+                return e.user.username.includes(JSON.parse(window.localStorage.getItem('loggedUser')).username)
+            }
+        })
+        return (
+            <div>
+                {dashboardData.length !== 0 ? 
+                dashboardData
+                    .sort((a, b) => b.likes - a.likes)
+                    .map((blog, i) => (
+                        <Blog 
+                            key={i} 
+                            blog={blog} 
+                        />
+                    )) :
+                    <p>You haven't created any blogs yet.</p>
+                }
+            </div>
+        )
+    }
+
 
     const filteredData = blogs.filter((e) => {
         if (filter === '') {
@@ -16,6 +40,7 @@ const BlogsList = () => {
 
     return (
         <div>
+            
             {filteredData
                 .sort((a, b) => b.likes - a.likes)
                 .map((blog, i) => (

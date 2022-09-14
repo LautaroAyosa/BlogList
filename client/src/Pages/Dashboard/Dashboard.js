@@ -1,9 +1,15 @@
+import BlogsList from "../../components/Blogs/BlogsList/BlogsList";
 import CreateBlogsForm from "../../components/Blogs/CreateBlogs/CreateBlogsForm/CreateBlogsForm";
+import Filter from '../../components/Filter/Filter'
 
 const Dashboard = () => {
 
     return (
-        <CreateBlogsForm />
+        <div>
+            <CreateBlogsForm />
+            <Filter />
+            <BlogsList usedFor='dashboard' />
+        </div>
     )
 }
 
