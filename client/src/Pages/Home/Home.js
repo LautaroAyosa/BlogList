@@ -9,9 +9,6 @@ const Home = () => {
     return (
         <div>
             <div>
-                <Notification />
-            </div>
-            <div>
                 <Filter />
             </div>
             <div>

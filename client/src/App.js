@@ -9,7 +9,7 @@ import Home from './Pages/Home/Home'
 import RegisterLogIn from './Pages/RegisterLogIn/RegisterLogIn'
 import Dashboard from './Pages/Dashboard/Dashboard';
 
-import './App.css'
+import './sass/main.css'
 
 
 const App = () => {
@@ -21,7 +21,9 @@ const App = () => {
 
   return (
     <Router>
-      <Notification />
+      <header>
+        <Notification />
+      </header>
       <NavBar/>
       <div className=''>
         <Routes>

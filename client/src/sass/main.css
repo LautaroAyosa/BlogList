@@ -1,0 +1,71 @@
+.filterContainer {
+  width: 100%;
+}
+
+.filter {
+  width: 100%;
+}
+
+.baseNotification, .success, .error {
+  padding: 2px 0px;
+  height: 20px;
+}
+
+.success {
+  color: #aad576;
+  background: #2c4a27;
+  background: linear-gradient(45deg, #2c4a27 0%, #386641 100%);
+}
+
+.error {
+  color: #ef233c;
+  background: #4f000b;
+  background: linear-gradient(45deg, #4f000b 0%, #741919 100%);
+}
+
+body {
+  background-color: #f7f8fc;
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.singleBlogContainer {
+  margin: 5px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: gainsboro;
+}
+
+.singleBlogHeader {
+  display: flex;
+}
+
+.singleBlogItem {
+  margin: 5px 5px;
+  line-height: 22px;
+}
+
+.singleBlogTogglable {
+  background-color: #bdbdbd;
+  padding: 5px;
+}
+
+.singleBlogContent p:first-child {
+  margin-top: 0px !important;
+}
+
+.likes button {
+  margin-left: 5px;
+}
+
+header {
+  max-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  line-height: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}

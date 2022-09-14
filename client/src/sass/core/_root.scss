@@ -1,21 +1,7 @@
-.success {
-    color: green;
-    background: lightgrey;
-    font-size: 20px;
-    border: solid 2px green;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-.error {
-    color: red;
-    background: lightgrey;
-    font-size: 20px;
-    border: solid 2px red;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+body {
+    background-color: $backgroundColor;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .singleBlogContainer {
