@@ -13,7 +13,7 @@ const Filter = (props) => {
     }
 
     return (
-        <div>{props.label} <input onChange={handleFilterChange} value={filter} name='filter' /></div>
+        <div>Search Blogs <input onChange={handleFilterChange} value={filter} name='filter' /></div>
     )
 }
 

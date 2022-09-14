@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Blog from "./Blog/Blog";
 
-const BlogsList = (props) => {
+const BlogsList = () => {
     const blogs = useSelector(state => state.blogs)
     const filter = useSelector(state => state.filter)
 
