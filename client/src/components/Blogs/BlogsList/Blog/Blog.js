@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { removeBlog } from '../../../../redux/reducers/blogsReducer'
 import blogService from '../../../../services/blogs'
 
 const Blog = (props) => {
   const [visible, setVisible] = useState(false)
   const [likes, setLikes] = useState(props.blog.likes)
+  const dispatch = useDispatch()
 
   const toggleVisibility = () => {
     setVisible(!visible)
@@ -18,15 +21,9 @@ const Blog = (props) => {
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    try {
-      if (window.confirm(`Are you sure you want to remove "${props.blog.title}" by ${props.blog.author}?`)) {
-        await blogService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
-        await blogService.remove(props.blog.id)
-        props.setMessage(`${props.blog.title} deleted successfuly`)
-      }
-    } catch (err) {
-      props.setMessage(`Error! ${err.response.data.Error}`)
-      console.log(err.response.data.Error)
+    if (window.confirm(`Are you sure you want to remove "${props.blog.title}" by ${props.blog.author}?`)) {
+      await blogService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
+      dispatch(removeBlog(props.blog))
     }
   }
 

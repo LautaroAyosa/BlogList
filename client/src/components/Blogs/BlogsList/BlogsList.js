@@ -1,12 +1,15 @@
+import { useSelector } from 'react-redux'
 import Blog from "./Blog/Blog";
 
-const BlogsList = (props) => {
+const BlogsList = () => {
+    const blogs = useSelector(state => state.blogs)
+    const filter = useSelector(state => state.filter)
 
-    const filteredData = props.blogs.filter((e) => {
-        if (props.filter === '') {
+    const filteredData = blogs.filter((e) => {
+        if (filter === '') {
             return e
         } else {
-            var lowerCase = props.filter.toLowerCase()
+            var lowerCase = filter.toLowerCase()
             return e.title.toLowerCase().includes(lowerCase)
         }
     })
