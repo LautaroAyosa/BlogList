@@ -59,10 +59,10 @@ const Blog = (props) => {
           <p className="likes">{likes} likes</p>
           <div>
             { isFromThisUser() ? 
-              <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i class="fa-solid fa-trash"></i>Delete</button>
+              <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>
               : ''
             }
-            <button onClick={handleLikeButton} className='likeBlogButton'><i class="fa-regular fa-thumbs-up"></i>Like</button>
+            <button onClick={handleLikeButton} className='likeBlogButton'><i className="fa-regular fa-thumbs-up"></i>Like</button>
           </div>
         </div>
       </div>
