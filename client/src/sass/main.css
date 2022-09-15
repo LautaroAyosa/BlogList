@@ -1,6 +1,10 @@
 button {
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+  border: solid 1px #0060df;
+  transition: 0.1s;
+  border-radius: 3px;
+  margin: 0px 5px 0px 0px;
 }
 
 .roundButton {
@@ -9,14 +13,27 @@ button {
   font-size: 16px;
 }
 
+.primaryButton {
+  background-color: #0060df;
+  color: white;
+  padding: 5px 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.primaryButton:hover {
+  background-color: #1876f1;
+  transition: 0.1s;
+}
+
+.primaryButton:active {
+  background-color: #1876f1;
+}
+
 .secondaryButton, .likeBlogButton, .removeBlogButton {
   background-color: transparent;
   color: #0060df;
-  border: solid 1px #0060df;
-  transition: 0.1s;
-  border-radius: 3px;
   padding: 3px 10px;
-  margin: 0px 5px;
 }
 
 .secondaryButton:hover, .likeBlogButton:hover, .removeBlogButton:hover {
@@ -65,6 +82,33 @@ button {
   border: 0px;
   border-radius: 10px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+form input::placeholder {
+  color: #5c5c5c;
+  font-size: 12px;
+}
+
+form .col1-2 {
+  width: 49%;
 }
 
 .baseNotification, .success, .error {
