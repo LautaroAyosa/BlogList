@@ -28,14 +28,16 @@ const App = () => {
       </header>
       <NavBar/>
       <div className='mainContainer'>
-        <Routes>
-          <Route exact path='/' element={<Home />}/>
-          <Route exact path='/login' element={<RegisterLogIn />}/>
-          <Route path='/dashboard/' element={<DashboardLayout/>}>
-            <Route path='add-new-blog' element={<CreateBlogsForm />} />
-            <Route path='' element={<BlogsList usedFor="dashboard" />} />
-          </Route>
-        </Routes>
+        <div className='baseContainer'>
+          <Routes>
+            <Route exact path='/' element={<Home />}/>
+            <Route exact path='/login' element={<RegisterLogIn />}/>
+            <Route path='/dashboard/' element={<DashboardLayout/>}>
+              <Route path='manage-blogs' element={<BlogsList usedFor="dashboard" />} />
+              <Route path='add-new-blog' element={<CreateBlogsForm />} />
+            </Route>
+          </Routes>
+        </div>
       </div>
       
     </Router>

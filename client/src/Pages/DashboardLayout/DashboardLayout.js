@@ -1,21 +1,23 @@
 import { NavLink, Outlet } from "react-router-dom";
-import BlogsList from "../../components/Blogs/BlogsList/BlogsList";
-import CreateBlogsForm from "../../components/Blogs/CreateBlogs/CreateBlogsForm/CreateBlogsForm";
-import Filter from '../../components/Filter/Filter'
+import Sidebar from "../../components/Sidebar/Sidebar";
 
-const DashboardLayout = (props) => {
-    console.log(props)
+const DashboardLayout = () => {
+
     return (
         <div>
-            <aside>
-                <NavLink to="/dashboard/add-new-blog" >Hello</NavLink>
-            </aside>
-            <main>
+            <div className="banner">
                 <h1>Welcome to your Dashboard!</h1>
                 <p>You can manage your blogs, your profile and much more from here</p>
-                <Outlet />
-            </main>
-            
+            </div>
+            <div className="col-2Container">
+                <Sidebar title='Dashboard'>
+                    <NavLink to="/dashboard/manage-blogs" >Manage Blogs</NavLink>
+                    <NavLink to="/dashboard/add-new-blog" >Add New Blog</NavLink>
+                </Sidebar>
+                <main>
+                    <Outlet />
+                </main>
+            </div>
         </div>
     )
 }
