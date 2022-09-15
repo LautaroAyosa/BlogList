@@ -12,7 +12,7 @@ const BlogsList = (props) => {
             }
         })
         return (
-            <div>
+            <div className='blogsListContainer'>
                 {dashboardData.length !== 0 ? 
                 dashboardData
                     .sort((a, b) => b.likes - a.likes)
@@ -39,7 +39,7 @@ const BlogsList = (props) => {
     })
 
     return (
-        <div>
+        <div className='blogsListContainer'>
             
             {filteredData
                 .sort((a, b) => b.likes - a.likes)

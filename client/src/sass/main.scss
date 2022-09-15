@@ -1,16 +1,20 @@
 // Abstract files
-@import "abstract/mixins";
-@import "abstract/variables";
+@import "sass-utils/mixins";
+@import "sass-utils/typography";
+@import "sass-utils/variables";
 
 // Components
-@import "components/forms";
+@import "components/buttons";
+@import "components/dropdown";
 @import "components/filter";
+@import "components/forms";
 @import "components/notification";
 
 // Core files
 @import "core/root";
 
 // Layout
+@import "layout/blogsList";
 @import "layout/footer";
 @import "layout/header";
 @import "layout/navigation";
@@ -18,3 +22,4 @@
 // Sections
 
 // Pages
+@import "pages/home"

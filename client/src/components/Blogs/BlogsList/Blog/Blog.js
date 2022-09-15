@@ -40,20 +40,36 @@ const Blog = (props) => {
   }
 
   return (
-    <div className="singleBlogContainer">
-      <div className='singleBlogHeader'>
-        <p className="singleBlogItem title"><strong>{props.blog.title}</strong> by {props.blog.author}</p>
-        <button id="view-btn" onClick={toggleVisibility}>
-            {visible ? 'hide' : 'show'}
-        </button>
+    <div className="singleBlog">
+      <div className='singleBlogImage'>
+        <a href={props.blog.url}>
+        <img></img>
+        </a>
+      </div>
+      <div className='singleBlogContent'>
+        <div>
+          <p className='category'>Category</p>
+          <h3 className="title">{props.blog.title}</h3>
+          <p className="author">by {props.blog.author}</p>
+        </div>
+        <div>
+          <p className='description'></p>
+        </div>
+        <div className='singleBlogFooter'>
+          <p className="likes">{likes} likes</p>
+          <div>
+            { isFromThisUser() ? 
+              <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i class="fa-solid fa-trash"></i>Delete</button>
+              : ''
+            }
+            <button onClick={handleLikeButton} className='likeBlogButton'><i class="fa-regular fa-thumbs-up"></i>Like</button>
+          </div>
+        </div>
       </div>
       {visible && (
       <div className='singleBlogContent'>
         <p className="singleBlogItem url">URL: {props.blog.url}</p>
-        <p className="singleBlogItem likes">
-          Likes: {likes}
-          <button onClick={handleLikeButton} id='singleBlogItemLikeButton'>Like</button>
-        </p>
+        
         { isFromThisUser()
           ? <p className="singleBlogItem remove">
               <button onClick={handleDelete}>Remove</button>
