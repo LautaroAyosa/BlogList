@@ -1,9 +1,70 @@
+button {
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.roundButton {
+  border-radius: 50%;
+  padding: 6px 8px;
+  font-size: 16px;
+}
+
+.secondaryButton, .likeBlogButton, .removeBlogButton {
+  background-color: transparent;
+  color: #0060df;
+  border: solid 1px #0060df;
+  transition: 0.1s;
+  border-radius: 3px;
+  padding: 3px 10px;
+  margin: 0px 5px;
+}
+
+.secondaryButton:hover, .likeBlogButton:hover, .removeBlogButton:hover {
+  transition: 0.1s;
+  background-color: #0060df;
+  color: white;
+}
+
+.secondaryButton:active, .likeBlogButton:active, .removeBlogButton:active {
+  background-color: #1876f1;
+}
+
+.secondaryButton i, .likeBlogButton i, .removeBlogButton i {
+  margin-right: 5px;
+}
+
+.removeBlogButton {
+  border: solid 1px #c40909;
+  color: #c40909;
+}
+
+.removeBlogButton:hover {
+  background-color: #c40909;
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+.dropdown ul {
+  display: none;
+  position: absolute;
+}
+
 .filterContainer {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .filter {
   width: 100%;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  border: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .baseNotification, .success, .error {
@@ -24,39 +85,103 @@
 }
 
 body {
+  min-height: 100vh;
   background-color: #f7f8fc;
   margin: 0px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.singleBlogContainer {
-  margin: 5px;
-  padding: 5px 10px;
+#root {
+  height: 100vh;
+}
+
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:visited {
+  color: black !important;
+}
+
+a:active {
+  color: black !important;
+}
+
+.clickable {
+  margin: 0px;
+  cursor: pointer;
+}
+
+.blogsListContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.blogsListContainer .singleBlog {
+  background-color: white;
+  height: 200px;
+  margin: 10px 0px;
+  border-radius: 20px;
+  display: flex;
+  width: 32%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.blogsListContainer .singleBlog:first-child {
+  width: 100%;
+  height: 250px;
+}
+
+.blogsListContainer .singleBlog:first-child .singleBlogImage {
+  width: 400px;
+}
+
+.blogsListContainer .singleBlog h3, .blogsListContainer .singleBlog p {
+  margin: 0px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent {
   display: flex;
   flex-direction: column;
-  background-color: gainsboro;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
 }
 
-.singleBlogHeader {
+.blogsListContainer .singleBlog .singleBlogContent .category {
+  font-size: 12px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .title {
+  font-size: 22px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .author, .blogsListContainer .singleBlog .singleBlogContent .likes {
+  font-size: 14px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .singleBlogFooter {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.singleBlogItem {
-  margin: 5px 5px;
-  line-height: 22px;
-}
-
-.singleBlogTogglable {
-  background-color: #bdbdbd;
-  padding: 5px;
-}
-
-.singleBlogContent p:first-child {
-  margin-top: 0px !important;
-}
-
-.likes button {
-  margin-left: 5px;
+.blogsListContainer .singleBlog .singleBlogContent .singleBlogFooter div {
+  display: flex;
+  align-items: center;
 }
 
 header {
@@ -68,4 +193,60 @@ header {
   line-height: 20px;
   font-size: 13px;
   font-weight: 500;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: white;
+  height: 50px;
+  font-size: 14px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  color: black;
+  margin: 0px;
+}
+
+nav ul:active {
+  color: black;
+}
+
+nav ul:focus {
+  color: black;
+}
+
+nav ul li {
+  padding: 10px 20px;
+}
+
+nav ul .dropdown.userMenu ul {
+  margin-top: 10px;
+  margin-left: -10px;
+  padding: 10px 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.16);
+}
+
+nav ul .dropdown.userMenu ul li {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav ul .dropdown.userMenu ul li:hover {
+  background-color: #f4f4f4;
+}
+
+.homeContainer {
+  width: 1120px;
+  height: 100%;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

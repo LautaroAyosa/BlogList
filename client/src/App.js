@@ -25,7 +25,7 @@ const App = () => {
         <Notification />
       </header>
       <NavBar/>
-      <div className=''>
+      <div className='mainContainer'>
         <Routes>
           <Route exact path='/' element={<Home />}/>
           <Route exact path='/login' element={<RegisterLogIn />}/>

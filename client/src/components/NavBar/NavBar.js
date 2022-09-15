@@ -15,17 +15,17 @@ const NavBar = () => {
     }, [])
 
     return (
-        <nav style={{display: 'flex', justifyContent: 'space-between', margin: '0px 120px', alignItems: 'center'}}>
+        <nav>
             <div>Logo</div>
             <ul>
                 <li><NavLink to='/'>Home</NavLink></li>
                 {user ? 
-                    <li>
+                    <li className="dropdown userMenu">
                         <NavLink to='/dashboard/'>Hi, {user.name}</NavLink>
                         <ul>
                             <li><NavLink to='/dashboard/'>Manage my blogs</NavLink></li>
                             <li><NavLink to='/dashboard/addNew'>Add new Blog</NavLink></li>
-                            <li><a onClick={async() => await loginService.logout()}>Log out</a></li>
+                            <li><p className="clickable" onClick={async() => await loginService.logout()}>Log out</p></li>
                         </ul>
                     </li>
                     : <li><a href='/login/'>Log In</a></li>

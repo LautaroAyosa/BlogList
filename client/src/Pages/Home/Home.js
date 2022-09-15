@@ -7,14 +7,10 @@ import Notification from "../../components/Notification/Notification";
 const Home = () => {
 
     return (
-        <div>
-            <div>
-                <Filter />
-            </div>
-            <div>
-                <BlogsList/>
-            </div>
-        </div>
+        <section className="homeContainer">
+            <Filter />
+            <BlogsList/>
+        </section>
         )
 }
 
