@@ -274,7 +274,7 @@ a:active {
 
 .blogsListContainer .singleBlog {
   background-color: white;
-  height: 200px;
+  height: 220px;
   margin: 10px 0px;
   border-radius: 20px;
   display: flex;
@@ -291,7 +291,7 @@ a:active {
   width: 400px;
 }
 
-.blogsListContainer .singleBlog h3, .blogsListContainer .singleBlog p {
+.blogsListContainer .singleBlog p {
   margin: 0px;
 }
 
@@ -308,11 +308,24 @@ a:active {
 }
 
 .blogsListContainer .singleBlog .singleBlogContent .title {
-  font-size: 22px;
+  line-height: 22px;
+  margin: 5px 0px;
 }
 
-.blogsListContainer .singleBlog .singleBlogContent .author, .blogsListContainer .singleBlog .singleBlogContent .likes {
+.blogsListContainer .singleBlog .singleBlogContent .author {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .likes {
   font-size: 14px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .description {
+  font-size: 12px;
+  max-height: 47px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .blogsListContainer .singleBlog .singleBlogContent .singleBlogFooter {

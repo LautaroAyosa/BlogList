@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
       ref: 'Blog'
     }
   ]
-})
+}, { timestamps: true })
 
 userSchema.set('toJSON', {
   transform: (document, returnedObject) => {

@@ -7,7 +7,7 @@
     height: 100%;
     .singleBlog {
         background-color: white;
-        height: 200px;
+        height: 220px;
         margin: 10px 0px;
         border-radius: 20px;
         display: flex;
@@ -23,7 +23,7 @@
 
         }
         
-        h3, p {
+        p {
             margin: 0px;
         }
 
@@ -37,10 +37,21 @@
                 font-size: 12px;
             }
             .title {
-                font-size: 22px;
+                line-height: 22px;
+                margin: 5px 0px;
             }
-            .author, .likes {
-                font-size: 14px;
+            .author {
+                font-style: italic;
+                font-size: 12px;
+            }
+            .likes {
+                font-size: 14px;    
+            }
+            .description {
+                font-size: 12px;
+                max-height: 47px;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .singleBlogFooter {
                 width: 100%;
