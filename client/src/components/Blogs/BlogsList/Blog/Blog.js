@@ -43,12 +43,12 @@ const Blog = (props) => {
     <div className="singleBlog">
       <div className='singleBlogImage'>
         <a href={props.blog.url}>
-        <img></img>
+          <img src='' alt={`${props.blog.title}`}/>
         </a>
       </div>
       <div className='singleBlogContent'>
         <div>
-          <p className='category'>Category</p>
+          <p className='category'>{props.blog.category}</p>
           <h4 className="title">{props.blog.title}</h4>
           <p className="author">by {props.blog.author}</p>
         </div>

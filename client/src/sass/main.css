@@ -145,7 +145,16 @@ form {
   margin: 10px 0px;
 }
 
-form input {
+form textarea {
+  resize: none;
+  height: 200px;
+}
+
+form .col1-2 {
+  width: 49%;
+}
+
+.input, form input, form textarea {
   margin-bottom: 10px;
   padding: 10px 16px;
   width: 100%;
@@ -155,13 +164,9 @@ form input {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-form input::placeholder {
+.input::placeholder, form input::placeholder, form textarea::placeholder {
   color: #5c5c5c;
   font-size: 12px;
-}
-
-form .col1-2 {
-  width: 49%;
 }
 
 .baseNotification, .success, .error {

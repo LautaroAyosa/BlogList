@@ -10,7 +10,7 @@ import LogIn from './Pages/Login/LogIn';
 import SignIn from './Pages/SignIn/SignIn';
 
 import './sass/main.css'
-import CreateBlogsForm from './components/Blogs/CreateBlogs/CreateBlogsForm/CreateBlogsForm';
+import CreateBlogsForm from './components/CreateBlogsForm/CreateBlogsForm';
 import DashboardLayout from './Pages/DashboardLayout/DashboardLayout';
 import BlogsList from './components/Blogs/BlogsList/BlogsList';
 
