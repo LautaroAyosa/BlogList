@@ -23,6 +23,7 @@ blogsRouter.post('/', async (req, res) => {
     title: body.title,
     author: body.author,
     url: body.url,
+    description: body.description,
     likes: body.likes,
     user: user.id
   }).populate('user', { username: 1, name: 1 })
@@ -61,7 +62,7 @@ blogsRouter.delete('/:id', async (req, res) => {
 blogsRouter.put('/:id', async (req, res) => {
   const token = req.token
   const user = req.user
-  const { title, author, url, likes } = req.body
+  const { title, author, url, description, likes } = req.body
 
   if (!token || !user) {
     return res.status(401).json({ error: 'token missing or invalid' })
@@ -75,6 +76,7 @@ blogsRouter.put('/:id', async (req, res) => {
     title,
     author,
     url,
+    description,
     likes
   })
   res.status(204).end()

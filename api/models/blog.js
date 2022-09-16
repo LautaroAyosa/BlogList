@@ -10,15 +10,24 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  description: {
+    type: String,
+    required: false
+  },
   likes: {
     type: Number,
     default: 0
   },
+  category: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true,
+  }],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }
-})
+}, { timestamps: true })
 
 blogSchema.set('toJSON', {
   transform: (document, returnedObject) => {

@@ -43,20 +43,20 @@ const Blog = (props) => {
     <div className="singleBlog">
       <div className='singleBlogImage'>
         <a href={props.blog.url}>
-        <img></img>
+          <img src='' alt={`${props.blog.title}`}/>
         </a>
       </div>
       <div className='singleBlogContent'>
         <div>
-          <p className='category'>Category</p>
-          <h3 className="title">{props.blog.title}</h3>
+          <p className='category'>{props.blog.category}</p>
+          <h4 className="title">{props.blog.title}</h4>
           <p className="author">by {props.blog.author}</p>
         </div>
         <div>
-          <p className='description'></p>
+          <p className='description'>{props.blog.description}</p>
         </div>
         <div className='singleBlogFooter'>
-          <p className="likes">{likes} likes</p>
+          <p className="likes">{likes} Likes</p>
           <div>
             { isFromThisUser() ? 
               <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>

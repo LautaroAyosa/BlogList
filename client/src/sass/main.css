@@ -24,11 +24,31 @@ h6 {
 }
 
 .banner {
-  height: 200px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url(https://bestwallpapers.in/wp-content/uploads/2021/07/abstract-fluid-art-colorful-4k-wallpaper-3840x2160.jpg) no-repeat;
+  z-index: -2;
+  margin: 25px 0px;
+  padding: 50px 100px;
+  color: white;
+  border-radius: 20px;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  border-radius: 20px;
+  height: 271px;
+  width: 1120px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.banner h1, .banner p {
+  z-index: 0;
 }
 
 button {
@@ -125,7 +145,16 @@ form {
   margin: 10px 0px;
 }
 
-form input {
+form textarea {
+  resize: none;
+  height: 200px;
+}
+
+form .col1-2 {
+  width: 49%;
+}
+
+.input, form input, form textarea {
   margin-bottom: 10px;
   padding: 10px 16px;
   width: 100%;
@@ -135,13 +164,9 @@ form input {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-form input::placeholder {
+.input::placeholder, form input::placeholder, form textarea::placeholder {
   color: #5c5c5c;
   font-size: 12px;
-}
-
-form .col1-2 {
-  width: 49%;
 }
 
 .baseNotification, .success, .error {
@@ -254,7 +279,7 @@ a:active {
 
 .blogsListContainer .singleBlog {
   background-color: white;
-  height: 200px;
+  height: 220px;
   margin: 10px 0px;
   border-radius: 20px;
   display: flex;
@@ -271,7 +296,7 @@ a:active {
   width: 400px;
 }
 
-.blogsListContainer .singleBlog h3, .blogsListContainer .singleBlog p {
+.blogsListContainer .singleBlog p {
   margin: 0px;
 }
 
@@ -288,11 +313,24 @@ a:active {
 }
 
 .blogsListContainer .singleBlog .singleBlogContent .title {
-  font-size: 22px;
+  line-height: 22px;
+  margin: 5px 0px;
 }
 
-.blogsListContainer .singleBlog .singleBlogContent .author, .blogsListContainer .singleBlog .singleBlogContent .likes {
+.blogsListContainer .singleBlog .singleBlogContent .author {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .likes {
   font-size: 14px;
+}
+
+.blogsListContainer .singleBlog .singleBlogContent .description {
+  font-size: 12px;
+  max-height: 47px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .blogsListContainer .singleBlog .singleBlogContent .singleBlogFooter {

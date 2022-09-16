@@ -13,13 +13,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  blogs: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Blog'
-    }
-  ]
-})
+  blogs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Blog'
+  }]
+}, { timestamps: true })
 
 userSchema.set('toJSON', {
   transform: (document, returnedObject) => {
