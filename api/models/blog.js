@@ -22,7 +22,7 @@ const blogSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }
-})
+}, { timestamps: true })
 
 blogSchema.set('toJSON', {
   transform: (document, returnedObject) => {
