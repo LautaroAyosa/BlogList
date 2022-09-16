@@ -6,5 +6,10 @@ const getUser = async (id) => {
   return response.data
 }
 
+const postUser = async (user) => {
+  const response = await axios.post(baseUrl, user)
+  return response.data
+}
+
 // eslint-disable-next-line
-export default { getUser }
+export default { getUser, postUser }
