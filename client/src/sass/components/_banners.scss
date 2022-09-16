@@ -1,7 +1,25 @@
 .banner {
-    height: 200px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: $backgroundImage no-repeat;
+    z-index: -2;
+    margin: 25px 0px;
+    padding: 50px 100px;
+    color: white;
+    border-radius: 20px;
+    &::before {
+        content: '';
+        position: absolute;
+        border-radius: 20px;
+        height: 271px;
+        width: 1120px;
+        background-color: rgba(0,0,0,0.5);
+        z-index: -1;
+    }
+    h1, p {
+        z-index: 0;
+    }
 }

@@ -24,11 +24,31 @@ h6 {
 }
 
 .banner {
-  height: 200px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url(https://bestwallpapers.in/wp-content/uploads/2021/07/abstract-fluid-art-colorful-4k-wallpaper-3840x2160.jpg) no-repeat;
+  z-index: -2;
+  margin: 25px 0px;
+  padding: 50px 100px;
+  color: white;
+  border-radius: 20px;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  border-radius: 20px;
+  height: 271px;
+  width: 1120px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.banner h1, .banner p {
+  z-index: 0;
 }
 
 button {
