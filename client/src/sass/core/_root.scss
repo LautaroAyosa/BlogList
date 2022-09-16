@@ -1,8 +1,11 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
     min-height: 100vh;
     background-color: $backgroundColor;
     margin: 0px;
-    font-family: 'Montserrat', sans-serif;
 }
 #root {
     height: 100vh;
@@ -13,10 +16,13 @@ a {
     text-decoration: none;
     cursor: pointer;
     &:visited {
-        color: black !important;
+        color: rgb(0, 78, 156) !important;
+    }
+    &:hover {
+        color: rgb(0, 102, 204) !important;
     }
     &:active {
-        color: black !important;
+        color: rgb(0, 102, 204) !important;
     }
 }
 
@@ -25,3 +31,11 @@ a {
     cursor: pointer;
 }
 
+.glass {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
+    border: 1px solid rgba(255, 255, 255, 0.36);
+}

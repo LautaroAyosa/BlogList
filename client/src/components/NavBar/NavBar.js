@@ -28,7 +28,7 @@ const NavBar = () => {
                             <li><p className="clickable" onClick={async() => await loginService.logout()}>Log out</p></li>
                         </ul>
                     </li>
-                    : <li><a href='/login/'>Log In</a></li>
+                    : <li><NavLink to='/login'>Login</NavLink></li>
                 }
             </ul>
         </nav>

@@ -1,7 +1,11 @@
-import loginService from "../../../../services/login"
-import blogService from '../../../../services/blogs'
+import loginService from "../../../services/login"
+import blogService from '../../../services/blogs'
+import {createNotification} from '../../../redux/reducers/notificationReducer'
+import { useDispatch } from 'react-redux'
 
 const LoginButton = (props) => {
+    const dispatch = useDispatch()
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -13,14 +17,14 @@ const LoginButton = (props) => {
             blogService.setToken(user.token)
             window.location.reload()
         } catch(err) {
-            props.setMessage(`Error! Incorrect Username or Password`)
-            props.setUser({username: '', password: ''})
+            dispatch(createNotification(err.response.data.error, 'error'))
         }
     }
 
     return (
         <button 
-            type="submit" 
+            type="submit"
+            className='primaryButton'
             onClick={handleSubmit}>
             Submit
         </button>

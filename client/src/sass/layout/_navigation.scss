@@ -2,10 +2,10 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 20px;
     background-color: white;
     height: 50px;
     font-size: 14px;
+    z-index: 100;
     ul {
         display: flex;
         list-style: none;
