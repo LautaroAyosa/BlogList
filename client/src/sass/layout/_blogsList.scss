@@ -7,21 +7,12 @@
     height: 100%;
     .singleBlog {
         background-color: white;
-        height: 220px;
+        height: 120px;
         margin: 10px 0px;
         border-radius: 20px;
         display: flex;
-        width: 32%;
+        width: 100%;
         box-shadow: $box-shadow;
-
-        &:first-child {
-            width: 100%;
-            height: 250px;
-            .singleBlogImage {
-                width: 400px;
-            }
-
-        }
         
         p {
             margin: 0px;
