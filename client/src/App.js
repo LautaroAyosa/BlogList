@@ -13,6 +13,7 @@ import './sass/main.css'
 import CreateBlogsForm from './components/CreateBlogsForm/CreateBlogsForm';
 import DashboardLayout from './Pages/DashboardLayout/DashboardLayout';
 import BlogsList from './components/Blogs/BlogsList/BlogsList';
+import UpdateBlogForm from './components/UpdateBlogForm/UpdateBlogForm';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
             <Route path='/dashboard/' element={<DashboardLayout/>}>
               <Route path='manage-blogs' element={<BlogsList usedFor="dashboard" />} />
               <Route path='add-new-blog' element={<CreateBlogsForm />} />
+              <Route path='edit-blog/:id' element={<UpdateBlogForm />} />
             </Route>
           </Routes>
 
