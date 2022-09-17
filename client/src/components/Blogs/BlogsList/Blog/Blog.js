@@ -42,11 +42,6 @@ const Blog = (props) => {
 
   return (
     <div className="singleBlog">
-      <div className='singleBlogImage'>
-        <a href={props.blog.url}>
-          <img src='' alt={`${props.blog.title}`}/>
-        </a>
-      </div>
       <div className='singleBlogContent'>
         <div>
           <p className='category'>{props.blog.category}</p>
@@ -70,19 +65,6 @@ const Blog = (props) => {
           </div>
         </div>
       </div>
-      {visible && (
-      <div className='singleBlogContent'>
-        <p className="singleBlogItem url">URL: {props.blog.url}</p>
-        
-        { isFromThisUser()
-          ? <p className="singleBlogItem remove">
-              <button onClick={handleDelete}>Remove</button>
-            </p>
-          : ''
-        }
-
-      </div>
-      )}
     </div>
   )
 }
