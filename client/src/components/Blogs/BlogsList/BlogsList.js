@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
 import Blog from "./Blog/Blog";
 
-const BlogsList = (props) => {
+const BlogsList = ({usedFor}) => {
     const blogs = useSelector(state => state.blogs)
     const filter = useSelector(state => state.filter)
 
-    if (props.usedFor === 'dashboard') {
+    if (usedFor === 'dashboard') {
         const dashboardData = blogs.filter((e) => {
             if(e.user) {
                 return e.user.username.includes(JSON.parse(window.localStorage.getItem('loggedUser')).username)
