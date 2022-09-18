@@ -21,7 +21,7 @@ const NavBar = () => {
                 <li><NavLink to='/'>Home</NavLink></li>
                 {user ? 
                     <li className="dropdown userMenu">
-                        <NavLink to='/dashboard/'>Hi, {user.name}</NavLink>
+                        <NavLink to='/dashboard/'>Hi, {user.username}</NavLink>
                         <ul>
                             <li><NavLink to='/dashboard/'>Manage my blogs</NavLink></li>
                             <li><NavLink to='/dashboard/add-new-blog'>Add new Blog</NavLink></li>
