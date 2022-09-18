@@ -32,7 +32,7 @@ nav {
                     padding: 5px 10px;
                     border-radius: 5px;
                     &:hover {
-                        background-color: rgba(244,244,244,1);
+                        background-color: $hoverGreyBackground;
                     }
                 }
             }

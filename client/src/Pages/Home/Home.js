@@ -6,9 +6,15 @@ import Filter from '../../components/Filter/Filter'
 const Home = () => {
 
     return (
-        <div className='baseContainer'>
-            <Filter />
-            <BlogsList/>
+        <div>
+            <div className="banner">
+                <h1>The Blog List</h1>
+                <p>This is a blog description placeholder</p>
+            </div>
+            <div className='baseContainer'>
+                <Filter />
+                <BlogsList/>
+            </div>
         </div>
         )
 }

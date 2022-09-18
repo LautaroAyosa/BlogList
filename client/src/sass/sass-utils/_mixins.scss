@@ -57,3 +57,8 @@ $breakpoint-med: 1175px;
     }
 }
 
+@mixin container($background, $padding, $borderRadius) {
+  background: $background;
+  padding: $padding;
+  border-radius: $borderRadius;
+}

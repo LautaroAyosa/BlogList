@@ -5,6 +5,7 @@ button {
     transition: 0.1s;
     border-radius: 3px;
     margin: 0px 5px 0px 0px;
+    font-size: 14px;
 }
 
 .roundButton {
@@ -18,7 +19,6 @@ button {
     color: white;
     padding: 8px 30px;
     font-weight: 500;
-    font-size: 14px;
     &:hover {
         background-color: #1876f1;
         transition: 0.1s;
@@ -29,6 +29,7 @@ button {
 }
 
 .secondaryButton {
+    @extend button;
     background-color: transparent;
     color: #0060df;
     padding: 3px 10px;
