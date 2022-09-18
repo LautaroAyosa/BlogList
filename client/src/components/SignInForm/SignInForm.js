@@ -17,7 +17,7 @@ const SignInForm = () => {
     <form>
       <input placeholder='Email' onChange={handleInputChange} value={user.email} name='email' />
       <input placeholder='Username' onChange={handleInputChange} value={user.username} name='username' />
-      <input placeholder='Password' onChange={handleInputChange} value={user.password} name='password' />
+      <input placeholder='Password' type='password' onChange={handleInputChange} value={user.password} name='password' />
       <SignInButton user={user} setUser={setUser} />
     </form>
   )
