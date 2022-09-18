@@ -13,7 +13,7 @@ const getAll = async () => {
 }
 
 const getById = async (id) => {
-  const response = await axios.get(`baseUrl/${id}`)
+  const response = await axios.get(`${baseUrl}/${id}`)
   return response.data
 }
 
@@ -30,7 +30,6 @@ const update = async (id, modifiedBlog) => {
     headers: { Authorization: token }
   }
   const response = await axios.put(`${baseUrl}/${id}`, modifiedBlog, config)
-  console.log(response)
   return response.data
 }
 

@@ -54,7 +54,6 @@ export const updateBlog = (id, blogToUpdate) => {
         try {
             await blogService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
             const updatedBlog = await blogService.update(id, blogToUpdate)
-            console.log(updateBlog)
             dispatch({
                 type: '@blogs/update_blog',
                 payload: {id: id, blog: updatedBlog}

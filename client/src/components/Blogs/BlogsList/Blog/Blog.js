@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { removeBlog, updateBlog } from '../../../../redux/reducers/blogsReducer'
