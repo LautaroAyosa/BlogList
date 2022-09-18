@@ -1,12 +1,22 @@
 import { useSelector } from 'react-redux'
 import Blog from "./Blog/Blog";
 
-const BlogsList = (props) => {
+const BlogsList = ({usedFor}) => {
     const blogs = useSelector(state => state.blogs)
     const filter = useSelector(state => state.filter)
 
-    if (props.usedFor === 'dashboard') {
-        const dashboardData = blogs.filter((e) => {
+    const filteredData = blogs.filter((e) => {
+        if (filter === '') {
+            return e
+        } else {
+            var lowerCase = filter.toLowerCase()
+            return e.title.toLowerCase().includes(lowerCase)
+        }
+    })
+
+    if (usedFor === 'dashboard') {
+        // eslint-disable-next-line
+        const dashboardData = filteredData.filter((e) => {
             if(e.user) {
                 return e.user.username.includes(JSON.parse(window.localStorage.getItem('loggedUser')).username)
             }
@@ -28,27 +38,19 @@ const BlogsList = (props) => {
         )
     }
 
-
-    const filteredData = blogs.filter((e) => {
-        if (filter === '') {
-            return e
-        } else {
-            var lowerCase = filter.toLowerCase()
-            return e.title.toLowerCase().includes(lowerCase)
-        }
-    })
-
     return (
         <div className='blogsListContainer'>
-            
-            {filteredData
+
+            {filteredData.length !== 0 ?
+            filteredData
                 .sort((a, b) => b.likes - a.likes)
                 .map((blog, i) => (
                     <Blog 
                         key={i} 
                         blog={blog} 
                     />
-                ))
+                )) :
+                <p>No blogs found for that search</p>
             }
         </div>
     )

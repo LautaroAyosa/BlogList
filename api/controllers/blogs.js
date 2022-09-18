@@ -24,6 +24,7 @@ blogsRouter.post('/', async (req, res) => {
     author: body.author,
     url: body.url,
     description: body.description,
+    category: body.category,
     likes: body.likes,
     user: user.id
   }).populate('user', { username: 1, name: 1 })
