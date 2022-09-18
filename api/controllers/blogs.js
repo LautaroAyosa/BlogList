@@ -62,7 +62,6 @@ blogsRouter.delete('/:id', async (req, res) => {
 blogsRouter.put('/:id', async (req, res) => {
   const token = req.token
   const user = req.user
-  const { title, author, url, description, likes } = req.body
 
   if (!token || !user) {
     return res.status(401).json({ error: 'token missing or invalid' })
@@ -71,13 +70,9 @@ blogsRouter.put('/:id', async (req, res) => {
     res.status(404).send({ Error: 'This user does not own any blogs' })
   }
 
-  const updatedBlog = await Blog.updateOne({id: req.params.id}, {
-    title,
-    author,
-    url,
-    description,
-    likes
-  })
+  const updatedBlog = await Blog.findOneAndUpdate({_id: req.params.id}, req.body, {
+    returnDocument: 'after'
+  }).populate('user', { username: 1, name: 1 })
   res.status(200).json(updatedBlog)
 })
 

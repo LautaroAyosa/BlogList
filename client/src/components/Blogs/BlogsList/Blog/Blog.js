@@ -1,16 +1,10 @@
-import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { addLike, removeBlog, updateBlog } from '../../../../redux/reducers/blogsReducer'
+import { removeBlog, updateBlog } from '../../../../redux/reducers/blogsReducer'
 import blogService from '../../../../services/blogs'
 
 const Blog = (props) => {
-  const [visible, setVisible] = useState(false)
   const dispatch = useDispatch()
-
-  const toggleVisibility = () => {
-    setVisible(!visible)
-  }
 
   const handleLikeButton = async (e) => {
     e.preventDefault()
