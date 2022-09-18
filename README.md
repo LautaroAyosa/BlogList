@@ -39,3 +39,4 @@ This are some of the Technologies and Frameworks I'm currently using in this app
 - [ ] Filter by range of likes (optional)
 - [ ] Create user profile page to display their information and blogs
 - [ ] Blogs List Pagination
+- [ ] Session expiration
