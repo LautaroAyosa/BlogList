@@ -1,22 +1,17 @@
-import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { removeBlog } from '../../../../redux/reducers/blogsReducer'
+import { NavLink } from 'react-router-dom'
+import { removeBlog, updateBlog } from '../../../../redux/reducers/blogsReducer'
 import blogService from '../../../../services/blogs'
 
 const Blog = (props) => {
-  const [visible, setVisible] = useState(false)
-  const [likes, setLikes] = useState(props.blog.likes)
   const dispatch = useDispatch()
-
-  const toggleVisibility = () => {
-    setVisible(!visible)
-  }
 
   const handleLikeButton = async (e) => {
     e.preventDefault()
-    await blogService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
-    await blogService.update(props.blog.id, { likes: props.blog.likes + 1 })
-    setLikes(likes + 1)
+    // await blogService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
+    // await blogService.update(props.blog.id, { likes: props.blog.likes + 1 })
+    // setLikes(likes + 1)
+    dispatch(updateBlog(props.blog.id, {likes: props.blog.likes + 1}))
   }
 
   const handleDelete = async (e) => {
@@ -41,11 +36,6 @@ const Blog = (props) => {
 
   return (
     <div className="singleBlog">
-      <div className='singleBlogImage'>
-        <a href={props.blog.url}>
-          <img src='' alt={`${props.blog.title}`}/>
-        </a>
-      </div>
       <div className='singleBlogContent'>
         <div>
           <p className='category'>{props.blog.category}</p>
@@ -56,29 +46,19 @@ const Blog = (props) => {
           <p className='description'>{props.blog.description}</p>
         </div>
         <div className='singleBlogFooter'>
-          <p className="likes">{likes} Likes</p>
+          <p className="likes">{props.blog.likes} Likes</p>
           <div>
             { isFromThisUser() ? 
-              <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>
+              <div>
+                <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>
+                <NavLink className='secondaryButton' to={`/dashboard/edit-blog/${props.blog.id}`}><i class="fa-solid fa-pencil"></i>Edit</NavLink>
+              </div>
               : ''
             }
             <button onClick={handleLikeButton} className='likeBlogButton'><i className="fa-regular fa-thumbs-up"></i>Like</button>
           </div>
         </div>
       </div>
-      {visible && (
-      <div className='singleBlogContent'>
-        <p className="singleBlogItem url">URL: {props.blog.url}</p>
-        
-        { isFromThisUser()
-          ? <p className="singleBlogItem remove">
-              <button onClick={handleDelete}>Remove</button>
-            </p>
-          : ''
-        }
-
-      </div>
-      )}
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import userService from '../../../services/users'
+import loginService from '../../../services/login'
 import {createNotification} from '../../../redux/reducers/notificationReducer'
 import { useDispatch } from 'react-redux'
 
@@ -8,12 +9,17 @@ const SignInButton = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-        const newUser = await userService.postUser({
+        await userService.postUser({
             email: props.user.email,
             username: props.user.username,
             password: props.user.password,
         })
-        window.localStorage.setItem('loggedUser', JSON.stringify(newUser))
+        const user = await loginService.login({
+            username: props.user.username,
+            password: props.user.password
+        })
+        window.localStorage.setItem('loggedUser', JSON.stringify(user))
+        window.location.reload()
         dispatch(createNotification(`Successfuly created a new user`, 'success'))
         props.setUser({email: '', username: '', name: '', lastName: '', password: ''})
         

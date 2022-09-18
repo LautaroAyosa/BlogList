@@ -12,6 +12,11 @@ const getAll = async () => {
   return response.data
 }
 
+const getById = async (id) => {
+  const response = await axios.get(`${baseUrl}/${id}`)
+  return response.data
+}
+
 const createBlog = async newBlog => {
   const config = {
     headers: { Authorization: token }
@@ -37,4 +42,4 @@ const remove = async (id) => {
 }
 
 // eslint-disable-next-line
-export default { getAll, createBlog, setToken, update, remove }
+export default { getAll, getById, createBlog, setToken, update, remove }

@@ -1,0 +1,9 @@
+{
+    "name": "BlogList",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "cd ./api && node index.js"
+    }
+  }
+  
