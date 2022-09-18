@@ -71,12 +71,8 @@ blogsRouter.put('/:id', async (req, res) => {
     res.status(404).send({ Error: 'This user does not own any blogs' })
   }
 
-  const updatedBlog = await Blog.updateOne({id: req.params.id}, {
-    title,
-    author,
-    url,
-    description,
-    likes
+  const updatedBlog = await Blog.findOneAndUpdate({_id: req.params.id}, req.body, {
+    returnDocument: 'after'
   })
   res.status(200).json(updatedBlog)
 })

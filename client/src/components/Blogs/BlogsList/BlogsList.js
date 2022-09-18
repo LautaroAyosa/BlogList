@@ -6,6 +6,7 @@ const BlogsList = ({usedFor}) => {
     const filter = useSelector(state => state.filter)
 
     if (usedFor === 'dashboard') {
+        // eslint-disable-next-line
         const dashboardData = blogs.filter((e) => {
             if(e.user) {
                 return e.user.username.includes(JSON.parse(window.localStorage.getItem('loggedUser')).username)
