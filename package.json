@@ -1,6 +1,9 @@
 {
     "name": "BlogList",
     "version": "1.0.0",
-    "private": true
+    "private": true,
+    "scripts": {
+      "start": "cd ./api && cross-env NODE_ENV=production node index.js"
+    }
   }
   
