@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-      "start": "cd ./api && cross-env NODE_ENV=production node index.js"
+      "start": "cd ./api && node index.js"
     }
   }
   
