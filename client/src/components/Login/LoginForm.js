@@ -3,7 +3,7 @@ import LoginButton from "./LoginButton/LoginButton"
 
 const LoginForm = (props) => {
     const [user, setUser] = useState({ username: "", password: ""});
-
+    
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUser({ ...user, [name]: value });
@@ -12,7 +12,7 @@ const LoginForm = (props) => {
     return (
         <form>
             <input placeholder='Username' onChange={handleInputChange} value={user.username} name='username' />
-            <input placeholder='Password' onChange={handleInputChange} value={user.password} name='password' />
+            <input placeholder='Password' type='password' onChange={handleInputChange} value={user.password} name='password' />
             <LoginButton user={user} setUser={setUser} setMessage={props.setMessage} />
         </form>
     )
