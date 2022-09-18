@@ -1,15 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from '../../redux/reducers/filterReducer';
 
 const Filter = (props) => {
     const filter = useSelector( state => state.filter)
     const dispatch = useDispatch()
 
     const handleFilterChange = (e) => {
-        dispatch({
-            type: 'filter',
-            payload: e.target.value
-        })
+        dispatch(setFilter(e.target.value))
     }
 
     return (
