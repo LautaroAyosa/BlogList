@@ -125,7 +125,7 @@ button {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 .filter {
@@ -280,7 +280,7 @@ a:active {
 .blogsListContainer .singleBlog {
   background-color: white;
   height: 120px;
-  margin: 10px 0px;
+  margin: 5px 0px;
   border-radius: 20px;
   display: flex;
   width: 100%;
