@@ -17,20 +17,11 @@ describe('BLOG CONTENT', () => {
   }
 
   let component
-  const showMockHandler = jest.fn()
-  const likeMockHandler = jest.fn()
 
   beforeEach(() => {
     component = render(
-      <Blog key={blog.id} blog={blog} toggleVisibility={showMockHandler} handleLikeButton={likeMockHandler} />
+      <Blog key={1} blog={blog} />
     )
-  })
-
-  test('Blog DOESN\'T render likes and url before show button is pressed', () => {
-    expect(component.container.querySelector('.title strong')).toHaveTextContent(blog.title)
-    expect(component.container.querySelector('.title')).toHaveTextContent(blog.author)
-    expect(component.container.querySelector('.likes')).toBe(null)
-    expect(component.container.querySelector('.url')).toBe(null)
   })
 
   test('At start Single Blog Content is not rendered', () => {

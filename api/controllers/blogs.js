@@ -1,5 +1,6 @@
 const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
+const Category = require('../models/category')
 
 blogsRouter.get('/', async (req, res) => {
   const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 })
@@ -24,8 +25,8 @@ blogsRouter.post('/', async (req, res) => {
     author: body.author,
     url: body.url,
     description: body.description,
-    category: body.category,
     likes: body.likes,
+    category: body.category,
     user: user.id
   }).populate('user', { username: 1, name: 1 })
 
@@ -63,6 +64,7 @@ blogsRouter.delete('/:id', async (req, res) => {
 blogsRouter.put('/:id', async (req, res) => {
   const token = req.token
   const user = req.user
+  const body = req.body
 
   if (!token || !user) {
     return res.status(401).json({ error: 'token missing or invalid' })
@@ -71,9 +73,11 @@ blogsRouter.put('/:id', async (req, res) => {
     res.status(404).send({ Error: 'This user does not own any blogs' })
   }
 
-  const updatedBlog = await Blog.findOneAndUpdate({_id: req.params.id}, req.body, {
-    returnDocument: 'after'
-  }).populate('user', { username: 1, name: 1 })
+  const updatedBlog = await Blog.findOneAndUpdate(
+    {_id: req.params.id}, 
+    req.body, 
+    {returnDocument: 'after'}
+  ).populate('user', { username: 1, name: 1 })
   res.status(200).json(updatedBlog)
 })
 
