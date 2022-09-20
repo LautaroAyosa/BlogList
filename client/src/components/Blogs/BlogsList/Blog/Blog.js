@@ -51,7 +51,7 @@ const Blog = (props) => {
             { isFromThisUser() ? 
               <div>
                 <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>
-                <NavLink className='secondaryButton' to={`/dashboard/edit-blog/${props.blog.id}`}><i class="fa-solid fa-pencil"></i>Edit</NavLink>
+                <NavLink className='secondaryButton' to={`/dashboard/edit-blog/${props.blog.id}`}><i className="fa-solid fa-pencil"></i>Edit</NavLink>
               </div>
               : ''
             }

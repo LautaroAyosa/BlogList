@@ -10,9 +10,8 @@ import LogIn from './Pages/Login/LogIn';
 import SignIn from './Pages/SignIn/SignIn';
 
 import './sass/main.css'
-import CreateBlogsForm from './components/CreateBlogsForm/CreateBlogsForm';
+import BlogsForm from './components/BlogsForm/BlogsForm';
 import DashboardLayout from './Pages/DashboardLayout/DashboardLayout';
-import UpdateBlogForm from './components/UpdateBlogForm/UpdateBlogForm';
 import DashboardManageBlogs from './Pages/DashboardLayout/DashboardManageBlogs/DashboardManageBlogs';
 import NotFound from './Pages/NotFound/NotFound';
 
@@ -38,8 +37,8 @@ const App = () => {
             <Route exact path='/' element={<Home />}/>
             <Route path='/dashboard/' element={<DashboardLayout/>}>
               <Route path='manage-blogs' element={<DashboardManageBlogs />} />
-              <Route path='add-new-blog' element={<CreateBlogsForm />} />
-              <Route path='edit-blog/:id' element={<UpdateBlogForm />} />
+              <Route path='add-new-blog' element={<BlogsForm />} />
+              <Route path='edit-blog/:id' element={<BlogsForm />} />
             </Route>
             <Route path='*' element={<NotFound />}/>
           </Routes>
