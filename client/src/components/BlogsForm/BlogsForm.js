@@ -50,7 +50,7 @@ const CreateBlogsForm = () => {
             category: response.category })
         })
     }
-  }, [])
+  }, [params.id])
 
   // Hanlde input change
   const handleInputChange = (event) => {
