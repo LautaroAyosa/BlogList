@@ -37,18 +37,20 @@ const CreateBlogsForm = () => {
       .then( (response) => {
         setCategories(response)
       })
-
-    blogServices
-      .getById(params.id)
-      .then((response) => {
-        setNewBlog({ 
-          title: response.title, 
-          author: response.author, 
-          url: response.url, 
-          description: response.description, 
-          category: response.category })
-      })
-  }, [])
+    
+    if (params.id) {
+      blogServices
+        .getById(params.id)
+        .then((response) => {
+          setNewBlog({ 
+            title: response.title, 
+            author: response.author, 
+            url: response.url, 
+            description: response.description, 
+            category: response.category })
+        })
+    }
+  }, [params.id])
 
   // Hanlde input change
   const handleInputChange = (event) => {
