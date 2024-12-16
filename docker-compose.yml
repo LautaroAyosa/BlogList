@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    image: lautaroayosa/bloglist-backend:latest
+    ports:
+      - "${BACKEND_PORT:-3005}:${BACKEND_PORT:-3005}"
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - SECRET=${SECRET}
+    depends_on:
+      - db
+
+  frontend:
+    image: lautaroayosa/bloglist-frontend:latest
+    ports:
+      - "${FRONTEND_PORT:-3004}:80"
+    depends_on:
+      - backend
+
+  db:
+    image: mongo:6
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - db-data:/data/db
+
+volumes:
+  db-data:

@@ -1,6 +1,6 @@
 import React from "react"
 import { Navigate, NavLink } from "react-router-dom"
-import LoginForm from "../../components/Login/LoginForm"
+import LoginForm from "../../components/LoginForm/LoginForm.js"
 
 const LogIn = () => {
     const user = JSON.parse(window.localStorage.getItem('loggedUser'))
