@@ -16,13 +16,13 @@ This are some of the Technologies and Frameworks I'm currently using in this app
 - dotenv
 
 
-### Features:
+### Minimum Features:
 - [x] Sign in with email, username and password.
 - [x] Email and Usernames must be Unique 
 - [x] Log In and Log out actions
-- [x] Save token, username and name to LocalStorage
+- [x] Save token, username and name to the browsers LocalStorage
 - [x] Don't save literal passwords on the database, only their hashed versions.
-- [x] Add new blogs from database if you are logged in
+- [x] Add new blogs from database if you are logged in (With Title [required], Author and URL [required])
 - [x] Update and modify your blogs if you are logged in
 - [x] Remove your blogs if you are logged in
 - [x] Like yours and others blogs
@@ -30,6 +30,9 @@ This are some of the Technologies and Frameworks I'm currently using in this app
 - [x] Filter through the list of blogs with a text input
 - [x] Dashboard page, which you can only access if you are logged in
 - [x] 404 Not Found page for all not defined routes.
+### Nice to have Features:
+- [x] Add categories to blogs
+- [x] Add descriptions to blogs
 - [ ] Only allow 1 like per blog per user
 - [ ] Single blog page to display data better
 - [ ] Let users modify their information
