@@ -1,4 +1,5 @@
 .banner {
+    position: relative; // Ensures the pseudo-element is relative to the banner
     height: 300px;
     width: 100%;
     display: flex;
@@ -6,20 +7,37 @@
     justify-content: center;
     align-items: center;
     background: $backgroundImage no-repeat;
+    background-size: cover; // Optional, for full background coverage
     z-index: 0;
     margin: 25px 0px 10px 0px;
     color: white;
     border-radius: 20px;
+    overflow: hidden; // Ensures the overlay is contained within the border radius
+
     &::before {
-        content: '';
+        content: ''; // Required to create a pseudo-element
         position: absolute;
-        border-radius: 20px;
-        height: 300px;
-        width: 1120px;
-        background-color: rgba(0,0,0,0.5);
-        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); // The overlay color
+        z-index: 1; // Overlay sits above the background
+        border-radius: inherit; // Ensures the overlay respects the parent's border-radius
+        pointer-events: none; // Allows interaction with content above the overlay
     }
+
+    // Ensure content is above the overlay
+    * {
+        position: relative;
+        z-index: 2;
+    }
+    
     h1, p {
         z-index: 1;
+    }
+    p {
+        max-width: 700px;
+        text-align: center;
     }
 }

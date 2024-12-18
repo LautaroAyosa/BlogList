@@ -10,7 +10,7 @@ const LogIn = () => {
         <div className="loginContainer">
             <aside>
                 <h1>Log In</h1>
-                <p>You don't have an account yet? <NavLink to='/signin'>Create an account</NavLink></p>
+                <p>You don't have an account yet? <NavLink to='/signin' className={"secondaryLink"}>Create an account</NavLink></p>
                 <LoginForm />
             </aside>
         </div>

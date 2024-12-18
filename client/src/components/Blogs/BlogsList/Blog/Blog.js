@@ -45,19 +45,26 @@ const Blog = (props) => {
         <div>
           <p className='description'>{props.blog.description}</p>
         </div>
-        <div className='singleBlogFooter'>
-          <p className="likes">{props.blog.likes} Likes</p>
-          <div>
-            { isFromThisUser() ? 
-              <div>
-                <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>
-                <NavLink className='secondaryButton' to={`/dashboard/edit-blog/${props.blog.id}`}><i className="fa-solid fa-pencil"></i>Edit</NavLink>
-              </div>
-              : ''
-            }
-            <button onClick={handleLikeButton} className='likeBlogButton'><i className="fa-regular fa-thumbs-up"></i>Like</button>
+        <div className='singleBlogFooterContainer'>
+          <div className='singleBlogFooter'>
+            <p className="likes">{props.blog.likes} Likes</p>
+            <div>
+              <button onClick={handleLikeButton} className='likeBlogButton'><i className="fa-regular fa-thumbs-up"></i>Like</button>
+              <a href={props.blog.url} target='_blank' rel="noreferrer" className='likeBlogButton'><i className="fa-solid fa-globe"></i>Visit</a>
+            </div>
           </div>
+          { isFromThisUser() ? 
+          <div className='singleBlogAdmin'>
+            <hr/>
+            <div className='singleBlogFooter'>
+              <button className='secondaryButton removeBlogButton' onClick={handleDelete}><i className="fa-solid fa-trash"></i>Delete</button>
+              <NavLink className='secondaryButton' to={`/dashboard/edit-blog/${props.blog.id}`}><i className="fa-solid fa-pencil"></i>Edit</NavLink>
+            </div>
+          </div>
+          : ''
+          }
         </div>
+        
       </div>
     </div>
   )

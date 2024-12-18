@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom";
 
-import loginService from '../../services/login'
+import NavBarLinks from "./NavBarLinks";
+import Togglable from "../Togglable/Togglable";
 
 const NavBar = () => {
-    const [user, setUser] = useState(null)
-
+    
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+    };
     useEffect(() => {
-        const loggedUserJSON = window.localStorage.getItem('loggedUser')
-        if (loggedUserJSON) {
-          const user = JSON.parse(loggedUserJSON)
-          setUser(user)
-        }
-    }, [])
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <nav>
-            <div>Logo</div>
-            <ul>
-                <li><NavLink to='/'>Home</NavLink></li>
-                {user ? 
-                    <li className="dropdown userMenu">
-                        <NavLink to='/dashboard/'>Hi, {user.username}</NavLink>
-                        <ul>
-                            <li><NavLink to='/dashboard/'>Dashboard</NavLink></li>
-                            <li><p className="clickable" onClick={async() => await loginService.logout()}>Log out</p></li>
-                        </ul>
-                    </li>
-                    : <li><NavLink to='/login'>Login</NavLink></li>
-                }
-            </ul>
+            <NavLink to="/" className="logo">
+                <img src="/static/images/logo_rectangular_S-fondo_negro.png" alt="Website Logo"/>
+            </NavLink>
+            { isMobile ? 
+                <Togglable 
+                className="hello"
+                showDivClassName="showDivClass"
+                buttonLabel={<i className="fa-solid fa-bars"></i>}
+                contentDivClassName="sidebarMenu"
+                hideLabel={<i className="fa-solid fa-xmark"></i>}
+                >
+                    <NavBarLinks/>
+                </ Togglable>
+                : 
+                <NavBarLinks/>
+            }
         </nav>
     )
 }

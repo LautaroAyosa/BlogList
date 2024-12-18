@@ -26,8 +26,31 @@ form {
     border-radius: 4px;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.08);
+    outline: none;
     &::placeholder {
         color: rgb(92, 92, 92);
         font-size: 12px;
     }
+    &:focus {
+        border: solid 1px $primaryColor
+    }
+}
+
+.customSelect {
+    @extend .input;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center; /* Mueve la flecha 16px a la derecha */
+    background-size: 20px; /* Tamaño de la flecha */
+    appearance: none;
+}
+
+.custom-select:focus {
+    border-color: #a0aec0; /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(160, 174, 192, 0.5); /* Sombra más definida */
+}
+
+.custom-select::placeholder {
+    color: #aaa;
 }

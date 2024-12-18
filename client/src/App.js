@@ -14,6 +14,7 @@ import BlogsForm from './components/BlogsForm/BlogsForm';
 import DashboardLayout from './Pages/DashboardLayout/DashboardLayout';
 import DashboardManageBlogs from './Pages/DashboardLayout/DashboardManageBlogs/DashboardManageBlogs';
 import NotFound from './Pages/NotFound/NotFound';
+import Footer from './components/Footer/Footer';
 
 
 const App = () => {
@@ -29,14 +30,14 @@ const App = () => {
         <Notification />
       </header>
       <NavBar/>
-      <div className='mainContainer'>
+      <div className='wrapper'>
 
           <Routes>
             <Route exact path='/login' element={<LogIn />}/>
             <Route exact path='/signin' element={<SignIn />}/>
             <Route exact path='/' element={<Home />}/>
             <Route path='/dashboard/' element={<DashboardLayout/>}>
-              <Route path='manage-blogs' element={<DashboardManageBlogs />} />
+              <Route path='' exact element={<DashboardManageBlogs />} />
               <Route path='add-new-blog' element={<BlogsForm />} />
               <Route path='edit-blog/:id' element={<BlogsForm />} />
             </Route>
@@ -44,7 +45,7 @@ const App = () => {
           </Routes>
 
       </div>
-      
+      <Footer/>
     </Router>
   )
 }

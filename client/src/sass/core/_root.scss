@@ -16,15 +16,23 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
+    color: black;
+    transition: .2s;
     &:visited {
         color: rgb(0, 78, 156);
     }
     &:hover {
         color: rgb(0, 102, 204);
+        transition: .2s;
     }
     &:active {
         color: rgb(0, 102, 204);
     }
+}
+.secondaryLink {
+    color: #0060df;
+    text-decoration: underline;
+    font-weight: 500;
 }
 
 .clickable {

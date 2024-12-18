@@ -26,7 +26,7 @@ const CreateBlogsForm = () => {
     handleSubmit = async (e) => {
       e.preventDefault()
         dispatch(createBlog(newBlog))
-        setNewBlog({ title: '', author: '', url: '', description:'', category:'' })
+        setNewBlog({ title: '', author: '', url: '', description:'', category:newBlog.category })
     }
   }
 
@@ -63,8 +63,8 @@ const CreateBlogsForm = () => {
       <input className='col1-2' placeholder={blogToUpdate ? blogToUpdate.title : 'Title' } onChange={handleInputChange} value={newBlog.title} name='title' />
       <input className='col1-2' placeholder={blogToUpdate ? blogToUpdate.author : 'Author' } onChange={handleInputChange} value={newBlog.author} name='author' />
       <input className='col3/4' placeholder={blogToUpdate ? blogToUpdate.url : 'Url' } onChange={handleInputChange} value={newBlog.url} name='url'/>
-      <select placeholder='Select a category' name='Category' onChange={handleInputChange}>
-        <option value=''>Select a Category</option>
+      <select placeholder='Select a category' name='category' onChange={handleInputChange} className='customSelect' value={newBlog.category || (blogToUpdate ? blogToUpdate.category : "")}>
+        <option value='' disabled selected>Select a Category</option>
         {categories.map((category, i) => {
           return <option key={i} value={category.name}>{category.name}</option>  
         })}

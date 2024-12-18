@@ -1,27 +1,78 @@
-.mainContainer {
+.wrapper {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
 }
 
+.mainContainer {
+    width: 1210px;
+    @media (max-width: 1200px) { // Large screens and laptops
+        width: 90%; // Use a percentage for flexibility
+    }
+    @media (max-width: 992px) { // Tablets and smaller laptops
+        width: 80%; // Shrink the container width
+    }
+    @media (max-width: 768px) { // Tablets (portrait mode) and large phones
+        width: 95%; // Almost full-width for smaller devices
+    }
+    @media (max-width: 576px) { // Small phones
+        width: 95%; // Full width for the smallest devices
+    }
+}
+
 .baseContainer {
-    width: 1120px;
+
     height: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 
 .col-2Container {
     margin: 20px 0px;
     display: flex;
+    gap: 20px; // Space between sidebar and main
     flex-direction: row;
     justify-content: space-between;
     aside {
-        width: 30%;
+        flex: 1; // Sidebar takes proportional space
+        height: 50px;
     }
+
     main {
-        width: 60%;
+        flex: 3; // Main content takes more space
+        display: flex;
+        flex-direction: column;
+
+        .blogsListContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            row-gap: 20px;
+            column-gap: 10px;
+            width: 100%;
+
+            .singleBlog {
+                background-color: white;
+                height: 250px;
+                border-radius: 5px;
+                display: flex;
+                box-shadow: $box-shadow;
+                width: calc((100% / 2) - 5px); // Default to 2 columns
+
+                @media (max-width: 992px) { // Phone
+                    width: 100%; // Single column for small screens
+                }
+            }
+        }
+    }
+    @media (max-width: 768px) { // Mobile
+        flex-direction: column; // Change to single column
+        gap: 10px; // Reduce the gap for better spacing
+
+        aside, main {
+            width: 100%; // Ensure both take full width
+        }
     }
 }
 
@@ -31,19 +82,50 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 50px); // Ajusta para no ocupar más de la altura completa
+    box-sizing: border-box; // Incluye padding y border en el cálculo del tamaño
+    padding: 0px 50px; // Asegura márgenes internos uniformes en pantallas más pequeñas
+
     aside {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0px 100px;
-        margin-left: 50px;
-        width: 400px;
-        height: 90%;
-        background-color: rgba(255,255,255,0.7);
-        box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+        align-items: start; // Centra el contenido horizontalmente
+        padding: 0px 40px; // Ajusta para tamaños pequeños
+        margin: 0; // Elimina márgenes para tablets/móviles
+        width: 500px;
+        max-width: 90%; // Limita el ancho en pantallas más pequeñas
+        height: 90%; // Permite que el contenido determine la altura
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px; // Suaviza bordes
+        h1 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 0px 0px 20px 0px;
+        }
     }
-    background-image: url(https://www.xtrafondos.com/descargar.php?id=6286&resolucion=3840x2160);
+
+    background-image: $backgroundImage;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media (max-width: 992px) { // Tablets
+        flex-direction: column; // Cambia el diseño a columna
+        justify-content: center; // Centra el contenido
+        aside {
+            margin: 20px auto; // Centra el aside horizontalmente
+        }
+    }
+
+    @media (max-width: 768px) { // Móviles
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+        aside {
+            width: 90%; // Asegura que el aside no ocupe demasiado espacio
+            padding: 15px; // Reduce padding para pantallas pequeñas
+        }
+    }
 }

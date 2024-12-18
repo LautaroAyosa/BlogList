@@ -1,15 +1,26 @@
 .blogsListContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 10px;
     width: 100%;
     .singleBlog {
         background-color: white;
-        height: 120px;
-        margin: 5px 0px;
-        border-radius: 20px;
+        height: 250px;
+        border-radius: 5px;
         display: flex;
-        width: 100%;
+        width: calc((100% / 4) - 7.5px);
         box-shadow: $box-shadow;
+        @media (max-width: 1210px) { // Between tablet and 1210px
+            width: calc((100% / 3) - 6.67px); // 3 columns
+        }
+        @media (max-width: 992px) { // Tablet
+            width: calc((100% / 2) - 5px); // 2 columns
+        }
+        @media (max-width: 768px) { // Mobile
+            width: 100%; // 1 column
+        }
         
         p {
             margin: 0px;
@@ -41,17 +52,21 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-            .singleBlogFooter {
-                width: 100%;
+            .singleBlogFooterContainer {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                div {
+                flex-direction: column;
+                .singleBlogFooter {
+                    width: 100%;
                     display: flex;
+                    justify-content: space-between;
                     align-items: center;
+                    div {
+                        display: flex;
+                        align-items: center;
+                    }
                 }
             }
         }
     }
-
 }
+
